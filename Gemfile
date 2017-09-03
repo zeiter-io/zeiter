@@ -31,7 +31,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use devise for authentication and user roles
 gem 'devise'
 # Use CanCan for managing users via Admin role
-gem 'cancan'
+gem 'cancancan', '~> 2.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
