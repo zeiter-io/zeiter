@@ -34,7 +34,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+  config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -88,7 +88,7 @@ Devise.setup do |config|
   # avoid CSRF token fixation attacks. This means that, when using AJAX
   # requests for sign in and sign up, you need to get a new CSRF token
   # from the server. You can disable this option at your own risk.
-  # config.clean_up_csrf_token_on_authentication = true
+  config.clean_up_csrf_token_on_authentication = true
 
   # When false, Devise will not attempt to reload routes on eager load.
   # This can reduce the time taken to boot the app but if your application
@@ -157,7 +157,8 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 6..128
+  # ****************************************CHANGE IN PROD AND TEST
+  config.password_length = 1..200
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
@@ -167,13 +168,13 @@ Devise.setup do |config|
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
-  # config.timeout_in = 30.minutes
+  config.timeout_in = 30.minutes
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
   # :failed_attempts = Locks an account after a number of failed attempts to sign in.
   # :none            = No lock strategy. You should handle locking by yourself.
-  # config.lock_strategy = :failed_attempts
+  config.lock_strategy = :failed_attempts
 
   # Defines which key will be used when locking and unlocking an account
   # config.unlock_keys = [:email]
@@ -183,14 +184,15 @@ Devise.setup do |config|
   # :time  = Re-enables login after a certain amount of time (see :unlock_in below)
   # :both  = Enables both strategies
   # :none  = No unlock strategy. You should handle unlocking by yourself.
-  # config.unlock_strategy = :both
+  # ****************************************************************CHANGE to :both in PROD
+  config.unlock_strategy = :time
 
   # Number of authentication tries before locking an account if lock_strategy
   # is failed attempts.
-  # config.maximum_attempts = 20
+  config.maximum_attempts = 4
 
   # Time interval to unlock the account if :time is enabled as unlock_strategy.
-  # config.unlock_in = 1.hour
+  config.unlock_in = 1.hour
 
   # Warn on the last attempt before the account is locked.
   # config.last_attempt_warning = true
@@ -242,7 +244,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  # config.navigational_formats = ['*/*', :html]
+  config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
