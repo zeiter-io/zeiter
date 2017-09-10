@@ -45,3 +45,6 @@ bower.json
 
 # RubyMine project files
 .idea/
+
+# rbenv vars for linux
+.rbenv-vars

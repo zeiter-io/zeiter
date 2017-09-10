@@ -46,8 +46,8 @@ group :development, :test do
   gem 'selenium-webdriver'
   # Use Rspec for testing
   gem 'rspec-rails', '>= 3.5'
-
-  gem 'wdm', '>= 0.1.0' if Gem.win_platform? # Windows Directory Monitor
+  # Windows Directory Monitor
+  gem 'wdm', '>= 0.1.0' if Gem.win_platform? 
 end
 
 group :development do
