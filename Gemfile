@@ -27,7 +27,9 @@ gem 'jbuilder', '~> 2.5'
 # Use resque for jobs.  Email, account creation, other stuff
 # gem 'resque'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+
+# Bcrypt for passwords
+gem 'bcrypt-ruby', '~> 3.0.0', :require => "bcrypt"
 # Use devise for authentication and user roles
 gem 'devise'
 # Use CanCan for managing users via Admin role
@@ -44,6 +46,8 @@ group :development, :test do
   #gem 'selenium-webdriver'
   # Use Rspec for testing
   gem 'rspec-rails', '>= 3.5'
+  # Windows Directory Monitor
+  gem 'wdm', '>= 0.1.0' if Gem.win_platform? 
 end
 
 group :development do

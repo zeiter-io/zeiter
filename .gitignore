@@ -42,3 +42,9 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# RubyMine project files
+.idea/
+
+# rbenv vars for linux
+.rbenv-vars
