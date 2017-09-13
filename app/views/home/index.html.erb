@@ -1,5 +1,9 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
-<% if current_user.admin? %>
+<% if current_user.admin? || current_user.supervisor? %>
   <p>Only Admins can see this!</p>
+<% end %>
+
+<% if current_user.god? %>
+  <h2>I am a god level user!</h2>
 <% end %>
