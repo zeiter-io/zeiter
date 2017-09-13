@@ -1,5 +1,7 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Schedule</h1>
+
+<%= link_to "Users", users_index_path %>
+
 <% if current_user.admin? || current_user.supervisor? %>
   <p>Only Admins can see this!</p>
 <% end %>
