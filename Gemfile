@@ -62,10 +62,8 @@ group :development, :test do
   gem 'rspec-rails', '>= 3.5'
 
   # Windows Directory Monitor
-  gem 'wdm', '>= 0.1.0' if Gem.win_platform? 
-end
+  gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
-group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
