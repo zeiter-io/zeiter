@@ -47,6 +47,10 @@ gem 'cancancan', '~> 2.0'
 # Bootstrap 4
 gem 'bootstrap', '~> 4.0.0.beta'
 
+# Required in production
+# @see https://stackoverflow.com/questions/38663706/loaderror-could-not-load-the-listen-gem-rails-5
+gem 'listen', '>= 3.0.5', '< 3.2'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -66,9 +70,10 @@ group :development, :test do
 
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
