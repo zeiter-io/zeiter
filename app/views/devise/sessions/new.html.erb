@@ -9,7 +9,12 @@
         <div class="card-body text-dark">
           <h4 class="card-title">Log In</h4>
           <p class="card-text">
+
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <% unless devise_error_messages!.blank? %>
+                <div class="alert alert-warning" role="alert"><%= devise_error_messages! %></div>
+              <% end %>
+
               <div class="form-group">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, class: 'form-control' %>
@@ -28,7 +33,7 @@
               <% end -%>
 
               <div class="actions">
-                <%= f.submit "Log in", class: 'btn btn-primary' %>
+                <%= f.submit 'Log in', class: 'btn btn-primary' %>
               </div>
             <% end %>
 
