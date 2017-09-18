@@ -9,10 +9,17 @@
         <div class="card-body text-dark">
           <h4 class="card-title">Log In</h4>
           <p class="card-text">
+
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
               <div class="form-group">
-                <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+                <form class="form-inline">
+                  <%= f.label :email %><br />
+                  <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">@</span>
+                    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+                  </div>
+                </form>
               </div>
 
               <div class="form-group">
@@ -25,10 +32,10 @@
                     <%= f.check_box :remember_me, class: 'checkbox' %>
                     <%= f.label :remember_me, class: 'form-check-label' %>
                   </div>
-              <% end -%>
+              <% end %>
 
               <div class="actions">
-                <%= f.submit "Log in", class: 'btn btn-primary' %>
+                <%= f.submit 'Log in', class: 'btn btn-primary' %>
               </div>
             <% end %>
 
