@@ -14,3 +14,7 @@ users = User.create([{ email: 'frank@paddys.com', password: 'p' },
 roles = Role.create([{ 
   name: 'admin'},
   {name: 'supervisor'}])
+
+schedules = Schedule.create([
+  {  }
+])
