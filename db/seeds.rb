@@ -16,5 +16,5 @@ roles = Role.create([{
   {name: 'supervisor'}])
 
 schedules = Schedule.create([
-  {  }
+  { name: "Bar Schedule" }
 ])
