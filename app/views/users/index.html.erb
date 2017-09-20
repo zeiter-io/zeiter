@@ -1,0 +1,8 @@
+<h1>All users</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <ul> <%= link_to user.email, user %> </ul>
+  <% end %>
+</ul>
+<%= link_to "Home", home_index_url %>
