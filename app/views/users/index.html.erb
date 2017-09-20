@@ -1,11 +1,12 @@
 <div class="container-fluid">
-  <h1>All Users</h1>
+  <h1 class="display-4">All Users</h1>
 
-  <table class="table">
+  <table class="table table-hover">
     <thead>
-    <td>First Name</td>
-    <td>Last Name</td>
-    <td>Email</td>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Options</th>
     </thead>
     <tbody>
     <% @users.each do |user| %>
@@ -13,6 +14,9 @@
           <td><%= user.first_name %></td>
           <td><%= user.last_name %></td>
           <td><%= user.email %></td>
+          <td>
+            <%= link_to 'Details', user, class: 'btn btn-outline-primary' %>
+          </td>
         </tr>
     <% end %>
     </tbody>
