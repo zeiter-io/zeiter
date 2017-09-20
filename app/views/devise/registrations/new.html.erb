@@ -15,6 +15,21 @@
               <% end %>
 
               <div class="form-group">
+                <%= f.label :first_name %><br/>
+                <%= f.text_field :first_name, placeholder: 'John', autofocus: true, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :middle_name %><br/>
+                <%= f.text_field :middle_name, placeholder: 'A', autofocus: true, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :last_name %><br/>
+                <%= f.text_field :last_name, placeholder: 'Smith', autofocus: true, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
                 <%= f.label :email %><br/>
                 <%= f.email_field :email, placeholder: 'email@domain.com', autofocus: true, class: 'form-control' %>
               </div>
