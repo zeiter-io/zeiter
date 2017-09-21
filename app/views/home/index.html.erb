@@ -1,11 +1,2 @@
-<h1>Schedule</h1>
-
 <%= link_to "Users", users_index_path %>
-
-<% if current_user.admin? || current_user.supervisor? %>
-  <p>Only Admins can see this!</p>
-<% end %>
-
-<% if current_user.god? %>
-  <h2>I am a god level user!</h2>
-<% end %>
+<%= link_to "Schedules", schedules_users_path(@user) %>
