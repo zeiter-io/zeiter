@@ -14,3 +14,6 @@ users = User.create([{ email: 'frank@paddys.com', password: 'p' },
 schedules = Schedule.create([
   { name: "Bar Schedule" }
 ])
+
+schedules_user = Schedules_user.create([
+])

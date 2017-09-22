@@ -1,5 +1,5 @@
 class Schedule < ApplicationRecord
-  before_save :generate_special_code
+  before_create :generate_special_code
   has_many :schedules_users, dependent: :destroy
   has_many :users, through: :schedules_users
   validates :name, presence: true
