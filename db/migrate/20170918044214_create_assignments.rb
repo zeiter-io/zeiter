@@ -1,6 +1,6 @@
-class CreateSchedulesUsers < ActiveRecord::Migration[5.1]
+class CreateAssignments < ActiveRecord::Migration[5.1]
   def change
-    create_table :schedules_users do |t|
+    create_table :assignments do |t|
       t.integer :user_id
       t.integer :schedule_id
       t.timestamps

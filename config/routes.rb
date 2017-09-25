@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get 'users/index'
   resources :users
   resources :schedules
-  resources :schedules_users
+  resources :assignments
   root 'home#index'  
 end

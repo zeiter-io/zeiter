@@ -15,16 +15,16 @@ ActiveRecord::Schema.define(version: 20170918044214) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "schedules", force: :cascade do |t|
-    t.string "name"
-    t.string "special_code"
+  create_table "assignments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "schedule_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "schedules_users", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "schedule_id"
+  create_table "schedules", force: :cascade do |t|
+    t.string "name"
+    t.string "special_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

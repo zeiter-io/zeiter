@@ -15,6 +15,6 @@ schedules = Schedule.create([
   { name: "Bar Schedule" }
 ])
 
-schedulesUser = SchedulesUser.create([
+assignments = Assignment.create([
   {user_id: 1, schedule_id: 1}
 ])
