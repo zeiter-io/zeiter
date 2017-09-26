@@ -12,7 +12,7 @@
   <tbody>
     <% @assignments.each do |assignment| %>
       <tr>
-        <td><%= assignment.user_id %> </td>
+        <td><%= assignment.user.email %> </td>
         <td> <%= assignment.schedule.name %> </td>
         <td><%= link_to 'Show', assignment %></td>
         <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
@@ -24,4 +24,5 @@
 
 <br>
 
+<%= link_to "Home", home_index_url %>
 <%= link_to 'New Assignment', new_assignment_path %>
