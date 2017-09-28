@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ECEFF1;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:;">
       <%= link_to image_tag('zeiter_logo.png', id: 'logo'), root_path, class: 'navbar-brand' %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -23,31 +23,43 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
-            </li>
-              <span class="navbar-text">Logged in as <strong><%= current_user.email %></strong>.</span>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, :class => 'nav-link' %>
-            </li>
-          <% end %>
+            <%= link_to "Plans", '#', :class => 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "About", '#', :class => 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Contact Us", '#', :class => 'nav-link' %>
+          </li>
         </ul>
 
         <!-- User Search -->
-        <% if user_signed_in? %>
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search User" aria-label="Search User">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <% if user_signed_in? %>
+              <span class="navbar-text">Logged in as <strong><%= current_user.email %></strong>.</span>
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <%= link_to 'Profile', edit_user_registration_path, class: 'nav-link' %>
+                </li>
+                <li class="nav-item pad-right-20">
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+                </li>
+              </ul>
+
+              <input class="form-control mr-sm-2" type="text" placeholder="Search User" aria-label="Search User">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <% else %>
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link' %>
+                </li>
+                <li class="nav-item pad-right-20">
+                  <%= link_to "Login", new_user_session_path, :class => 'nav-link' %>
+                </li>
+              </ul>
+            <% end %>
           </form>
-        <% end %>
 
       </div>
     </nav>
