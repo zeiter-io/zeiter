@@ -14,20 +14,22 @@
 
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Just+Another+Hand|Montserrat:300,500');
+@import url('https://fonts.googleapis.com/css?family=Asap+Condensed:500');
 
 // Global Variables
 $accent-color: #5E35B1;
 
 .navbar {
-  margin-top: -15px;
+  margin-top: -10px;
 }
 
 #navbar a:hover {
   color: $accent-color;
 }
 #navbar #logo {
-  font-family: 'Just Another Hand', cursive;
-  font-size: 4.1em;
+  font-family: 'Asap Condensed', sans-serif;
+  font-size: 2.75em;
+  font-weight: 500;
   color: #212121;
 }
 
@@ -59,7 +61,7 @@ $accent-color: #5E35B1;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   color: $accent-color;
-  font-size: 2.5em;
+  font-size: 2.35em;
   text-align: center;
 }
 
