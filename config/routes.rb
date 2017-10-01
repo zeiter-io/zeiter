@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'users/index'
   resources :users
-  resources :schedules do
-    resources :assignments, shallow: true
-  end
+  resources :assignments
+  resources :schedules
   root 'home#index'  
 end
