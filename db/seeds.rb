@@ -12,7 +12,8 @@ users = User.create([{ email: 'frank@paddys.com', password: 'p' },
 { email: 'charlie@paddys.com', password: 'p' }])
 
 schedules = Schedule.create([
-  { name: "Bar Schedule" }
+  { name: "Bar Schedule" },
+  { name: "Bar Afternoon Schedule"}
 ])
 
 assignments = Assignment.create([
