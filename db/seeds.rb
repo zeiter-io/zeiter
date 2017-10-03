@@ -18,5 +18,7 @@ schedules = Schedule.create([
 
 assignments = Assignment.create([
   {user_id: 1, schedule_id: 1},
-  {user_id: 2, schedule_id: 1}
+  {user_id: 2, schedule_id: 1},
+  {user_id: 3, schedule_id: 2},
+  {user_id: 4, schedule_id: 2}
 ])

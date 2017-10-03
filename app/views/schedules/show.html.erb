@@ -10,5 +10,9 @@
   <%= @schedule.special_code %>
 </p>
 
+<% @schedule.assignments.each do |assignment| %>
+  <p><%= assignment.user.email %><p> <break>
+<% end %>
+
 <%= link_to 'Edit', edit_schedule_path(@schedule) %> |
 <%= link_to 'Back', schedules_path %>
