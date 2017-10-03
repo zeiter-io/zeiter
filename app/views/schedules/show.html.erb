@@ -9,7 +9,7 @@
   <strong>Special code:</strong>
   <%= @schedule.special_code %>
 </p>
-
+<h4>Users in the <%= @schedule.name %></h4>
 <% @schedule.assignments.each do |assignment| %>
   <p><%= assignment.user.email %><p> <break>
 <% end %>
