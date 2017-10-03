@@ -1,8 +1,24 @@
-<h1>All users</h1>
+<div class="container-fluid">
+  <h1 class="display-4">All Users</h1>
 
-<ul>
-  <% @users.each do |user| %>
-    <ul> <%= link_to user.email, user %> </ul>
-  <% end %>
-</ul>
-<%= link_to "Home", home_index_url %>
+  <table class="table table-hover">
+    <thead>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Options</th>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.email %></td>
+          <td>
+            <%= link_to 'Details', user, class: 'btn btn-outline-primary' %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
