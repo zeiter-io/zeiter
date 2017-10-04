@@ -1,11 +1,16 @@
-<h1>Schedule</h1>
+<div class="container home">
+  <div class="row">
+    <div class="col pad-top-20">
+      <header>
+        <h2>Scheduling For Professionals</h2>
+        <p>
+          A simple, attractive, and automated solution for scheduling.<br />
+          Small, medium or large, no matter the size of your business,<br />
+          <b>Zeiter is for you</b>.
+        </p>
+      </header>
 
-<%= link_to "Users", users_index_path %>
 
-<% if current_user.admin? || current_user.supervisor? %>
-  <p>Only Admins can see this!</p>
-<% end %>
-
-<% if current_user.god? %>
-  <h2>I am a god level user!</h2>
-<% end %>
+    </div>
+  </div>
+</div>
