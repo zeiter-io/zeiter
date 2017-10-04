@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" id="login-card">
   <div class="row">
     <div class="col">
       <!--1 of 3-->
@@ -32,12 +32,12 @@
                   </div>
               <% end -%>
 
-              <div class="actions">
+              <div class="actions pad-bottom-10">
                 <%= f.submit 'Log in', class: 'btn btn-primary' %>
               </div>
             <% end %>
 
-            <%= render "devise/shared/links" %>
+            <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
           </p>
         </div>
       </div>
