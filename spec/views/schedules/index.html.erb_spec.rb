@@ -5,11 +5,11 @@ RSpec.describe "schedules/index", type: :view do
     assign(:schedules, [
       Schedule.create!(
         :name => "Name",
-        :special_code => "Special Code"
+        :ucode => "Code"
       ),
       Schedule.create!(
         :name => "Name",
-        :special_code => "Special Code"
+        :ucode => "Code"
       )
     ])
   end
@@ -17,6 +17,6 @@ RSpec.describe "schedules/index", type: :view do
   it "renders a list of schedules" do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => "Special Code".to_s, :count => 2
+    assert_select "tr>td", :text => "Code".to_s, :count => 2
   end
 end

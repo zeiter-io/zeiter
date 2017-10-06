@@ -4,7 +4,7 @@ RSpec.describe "schedules/new", type: :view do
   before(:each) do
     assign(:schedule, Schedule.new(
       :name => "MyString",
-      :special_code => "MyString"
+      :ucode => "MyString"
     ))
   end
 
@@ -15,7 +15,7 @@ RSpec.describe "schedules/new", type: :view do
 
       assert_select "input[name=?]", "schedule[name]"
 
-      assert_select "input[name=?]", "schedule[special_code]"
+      assert_select "input[name=?]", "schedule[ucode]"
     end
   end
 end

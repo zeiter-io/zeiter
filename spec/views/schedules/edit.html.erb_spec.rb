@@ -4,7 +4,7 @@ RSpec.describe "schedules/edit", type: :view do
   before(:each) do
     @schedule = assign(:schedule, Schedule.create!(
       :name => "MyString",
-      :special_code => "MyString"
+      :ucode => "MyString"
     ))
   end
 
@@ -15,7 +15,7 @@ RSpec.describe "schedules/edit", type: :view do
 
       assert_select "input[name=?]", "schedule[name]"
 
-      assert_select "input[name=?]", "schedule[special_code]"
+      assert_select "input[name=?]", "schedule[ucode]"
     end
   end
 end
