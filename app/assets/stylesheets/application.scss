@@ -13,15 +13,62 @@
  */
 
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Just+Another+Hand|Montserrat:300,500');
+@import url('https://fonts.googleapis.com/css?family=Asap+Condensed:500');
 
-#logo {
-  width: 90px;
+// Global Variables
+$accent-color: #5E35B1;
+
+.navbar {
+  margin-top: -10px;
+}
+
+#navbar a:hover {
+  color: $accent-color;
+}
+#navbar #logo {
+  font-family: 'Asap Condensed', sans-serif;
+  font-size: 2.75em;
+  font-weight: 500;
+  color: #212121;
 }
 
 .btn-secondary {
   background-color: #999999;
 }
 
-.container, .container-fluid {
-  width: 90%;
+.pad-right-20 {
+  padding-right: 20px;
+}
+
+.pad-top-20 {
+  padding-top: 20px;
+}
+
+.pad-bottom-10 {
+  padding-bottom: 10px;
+}
+
+#login-card a:hover {
+  text-decoration: none;
+}
+
+.pad-left-20 {
+  padding-left: 20px;
+}
+
+.home h1, h2, everyone {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: $accent-color;
+  font-size: 2.35em;
+  text-align: center;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  text-align: center;
+
 }
