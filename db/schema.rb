@@ -31,6 +31,20 @@ ActiveRecord::Schema.define(version: 20171004053428) do
     t.integer "clone_of"
   end
 
+  create_table "assignments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "schedule_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "name"
+    t.string "ucode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -46,9 +60,6 @@ ActiveRecord::Schema.define(version: 20171004053428) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "god", default: false
-    t.boolean "supervisor", default: false
-    t.boolean "admin", default: false
     t.string "first_name"
     t.string "middle_name"
     t.string "last_name"

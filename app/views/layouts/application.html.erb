@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <title>Zeiter</title>
-
-  <%= csrf_meta_tags %>
+<html>
+  <head>
+    <title>Zeiter</title>
+    <%= csrf_meta_tags %>
 
   <!-- Load Assets -->
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -29,7 +24,7 @@
           <%= link_to "Home", root_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Shifts", shifts_url, class: 'nav-link' %>
+          <%= link_to "Schedules", '#', class: 'nav-link' %>
         </li>
         <li class="nav-item">
           <%= link_to "Users", users_path, class: 'nav-link' %>
@@ -56,8 +51,13 @@
               </li>
             </ul>
 
-            <input class="form-control mr-sm-2" type="text" placeholder="Search User" aria-label="Search User">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <!-- User Search -->
+            <% if user_signed_in? %>
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Search User" aria-label="Search User">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            <% end %>
 
         <% else %>
 

@@ -22,6 +22,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: zeiter
   password: <%= ENV['ZEITER_DATABASE_PASSWORD'] %>
+  host: "" 
 
 development:
   <<: *default
