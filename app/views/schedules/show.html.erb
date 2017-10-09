@@ -11,7 +11,9 @@
 </p>
 <h4>Users in the <%= @schedule.name %></h4>
 <% @schedule.assignments.each do |assignment| %>
-  <p><%= assignment.user.email %><p> <break>
+  <p><%= assignment.user.first_name %></p>
+  <p><%= assignment.user.last_name %></p>
+  <p><%= assignment.user.email %><p>
 <% end %>
 
 <%= link_to 'Edit', edit_schedule_path(@schedule) %> |
