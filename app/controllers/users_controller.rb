@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  #before_filter :check_access, only :edit
-
   def index
     @users = User.search_by_name(params['search'])
     @users ||= User.all

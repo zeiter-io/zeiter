@@ -15,6 +15,20 @@ ActiveRecord::Schema.define(version: 20171004053428) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "assignments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "schedule_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "name"
+    t.string "ucode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shifts", force: :cascade do |t|
     t.string "name"
     t.datetime "start_time"
@@ -29,20 +43,6 @@ ActiveRecord::Schema.define(version: 20171004053428) do
     t.boolean "swappable"
     t.integer "shift_id"
     t.integer "clone_of"
-  end
-
-  create_table "assignments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "schedule_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "schedules", force: :cascade do |t|
-    t.string "name"
-    t.string "ucode"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,9 +60,12 @@ ActiveRecord::Schema.define(version: 20171004053428) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "god", default: false
+    t.boolean "supervisor", default: false
+    t.boolean "admin", default: false
     t.string "first_name"
-    t.string "middle_name"
     t.string "last_name"
+    t.string "middle_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["first_name"], name: "index_users_on_first_name"
     t.index ["last_name"], name: "index_users_on_last_name"
