@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  #before_filter :check_access, only :edit
+  
   def index
     @users = User.search_by_name(params['search'])
     @users ||= User.all
@@ -7,6 +9,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @shifts = @user.shifts
+  end
+
+  def edit
   end
 
   def edit

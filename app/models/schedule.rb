@@ -1,5 +1,6 @@
 class Schedule < ApplicationRecord
   before_create :generate_ucode
+
   has_many :users, through: :assignments
   has_many :assignments, dependent: :destroy
   has_many :shifts
