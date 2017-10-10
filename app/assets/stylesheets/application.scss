@@ -30,9 +30,11 @@ $accent-color: #5E35B1;
   font-family: 'Asap Condensed', sans-serif;
   font-size: 2.75em;
   font-weight: 500;
+
+#logo a {
+  text-decoration: none;
   color: #212121;
-// Global Variables
-$accent-color: #5E35B1;
+}
 
 body {
   font-size: 0.9em;
@@ -40,16 +42,6 @@ body {
 
 .navbar {
   margin-top: -10px;
-}
-
-#navbar a:hover {
-  color: $accent-color;
-}
-#navbar #logo {
-  font-family: 'Asap Condensed', sans-serif;
-  font-size: 2.5em;
-  font-weight: 500;
-  color: #212121;
 }
 
 .btn-secondary {
