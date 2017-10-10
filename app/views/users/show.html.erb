@@ -1,7 +1,47 @@
-<h1> <%= @user.email %> </h1>
-<ul>
-  <li> Email: <%= @user.email %> </li>
-</ul>
+<div class="container-fluid pad-top-20">
+  <h1> <%= @user.full_name %></h1>
+  <ul>
+    <li> Email: <%= @user.email %> </li>
+  </ul>
 
-<%= link_to "Users", :users_index %>
-<%= link_to "Home", :home_index %>
+  <div class="pad-top-20">
+    <h1>My Shifts</h1>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Assigned To</th>
+        <th>Start time</th>
+        <th>End time</th>
+        <th>Duration</th>
+        <th>Repeat</th>
+        <th>Repeat every</th>
+        <th>Repeat every unit</th>
+        <th>Repeat end date</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @shifts.each do |shift| %>
+          <tr>
+            <td><%= shift.name %></td>
+            <td><%= User.find(shift.user_id).full_name %></td>
+            <td><%= shift.start_time %></td>
+            <td><%= shift.end_time %></td>
+            <td><%= shift.duration %></td>
+            <td><%= shift.repeat %></td>
+            <td><%= shift.repeat_every %></td>
+            <td><%= shift.repeat_every_unit %></td>
+            <td><%= shift.repeat_end_date %></td>
+            <td><%= link_to 'Show', shift %></td>
+            <td><%= link_to 'Edit', edit_shift_path(shift) %></td>
+            <td><%= link_to 'Destroy', shift, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>

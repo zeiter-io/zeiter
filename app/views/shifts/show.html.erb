@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Assigned To:</strong>
+  <%= User.find(@shift.user_id).full_name %>
+</p>
+
+<p>
   <strong>Start time:</strong>
   <%= @shift.start_time %>
 </p>

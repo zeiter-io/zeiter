@@ -1,9 +1,10 @@
 <h1>Shifts</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
+      <th>Assigned To</th>
       <th>Start time</th>
       <th>End time</th>
       <th>Duration</th>
@@ -19,6 +20,7 @@
     <% @shifts.each do |shift| %>
       <tr>
         <td><%= shift.name %></td>
+        <td><%= User.find(shift.user_id).full_name %></td>
         <td><%= shift.start_time %></td>
         <td><%= shift.end_time %></td>
         <td><%= shift.duration %></td>

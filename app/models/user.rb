@@ -5,6 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :lockable, :timeoutable
   has_many :assignments, dependent: :destroy
   has_many :schedules, through: :assignments
+  has_many :shifts
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 
   #
   # Search a user by first and last name

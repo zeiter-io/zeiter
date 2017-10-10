@@ -70,6 +70,6 @@ class ShiftsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shift_params
-      params.require(:shift).permit(:name, :start_time, :end_time, :duration, :repeat, :repeat_every, :repeat_every_unit, :repeat_end_date)
+      params.require(:shift).permit(:name, :user_id, :start_time, :end_time, :duration, :repeat, :repeat_every, :repeat_every_unit, :repeat_end_date)
     end
 end
