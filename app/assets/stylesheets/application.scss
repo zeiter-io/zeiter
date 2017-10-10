@@ -13,7 +13,7 @@
  */
 
 @import "bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Just+Another+Hand|Montserrat:300,500');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,500');
 @import url('https://fonts.googleapis.com/css?family=Asap+Condensed:500');
 
 // Global Variables
@@ -26,10 +26,12 @@ $accent-color: #5E35B1;
 #navbar a:hover {
   color: $accent-color;
 }
+
 #navbar #logo {
   font-family: 'Asap Condensed', sans-serif;
   font-size: 2.75em;
   font-weight: 500;
+}
 
 #logo a {
   text-decoration: none;
@@ -68,7 +70,7 @@ body {
   padding-left: 20px;
 }
 
-.home h1, h2, everyone {
+.home h1, h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   color: $accent-color;
@@ -81,5 +83,4 @@ p {
   font-weight: 300;
   font-size: 1em;
   text-align: center;
-
 }
