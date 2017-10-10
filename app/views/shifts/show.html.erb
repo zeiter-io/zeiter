@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Schedule:</strong>
+  <%= Schedule.find(@shift.schedule_id).name %>
+</p>
+
+<p>
   <strong>Assigned To:</strong>
   <%= User.find(@shift.user_id).full_name %>
 </p>

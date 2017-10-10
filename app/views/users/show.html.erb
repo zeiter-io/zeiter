@@ -4,6 +4,13 @@
     <li> Email: <%= @user.email %> </li>
   </ul>
 
+  <%= form_for schedule_path, method: 'get' do |f| %>
+    <div class="form-group">
+      <%= f.label 'Part of Schedule' %>
+      <%= f.select :schedule_id, options_from_collection_for_select(@user.schedules, 'id', 'name'), id: :schedule_id, class: 'form-control'%>
+    </div>
+  <% end %>
+
   <div class="pad-top-20">
     <h1>My Shifts</h1>
 
