@@ -1,6 +1,7 @@
 <div class="container-fluid">
   <p id="notice"><%= notice %></p>
 
+  <h1><%= @schedule.name %></h1>
   <p>
     <strong>Name:</strong>
     <%= @schedule.name %>
@@ -10,16 +11,21 @@
     <strong>Code:</strong>
     <%= @schedule.ucode %>
   </p>
-  <h4>Users in the <%= @schedule.name %></h4>
+
+  <h4>Users in <%= @schedule.name %></h4>
+  <%= link_to 'Add User', users_path, class: 'btn btn-outline-primary btn-sm' %>
   <% @schedule.assignments.each do |assignment| %>
-      <p><%= assignment.user.email %><p> <break>
+      <p class="pad-bottom-10"><%= assignment.user.email %><p>
   <% end %>
 
+  <br />
+  <br />
+  <br />
   <%= link_to 'Edit', edit_schedule_path(@schedule) %> |
   <%= link_to 'Back', schedules_path %>
 
   <div class="pad-top-20">
-    <h1>Shifts</h1>
+    <h1>Shifts for <%= @schedule.name %></h1>
 
     <table class="table">
       <thead>
