@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004053428) do
+ActiveRecord::Schema.define(version: 20171010070702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20171004053428) do
     t.boolean "swappable"
     t.integer "shift_id"
     t.integer "clone_of"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
