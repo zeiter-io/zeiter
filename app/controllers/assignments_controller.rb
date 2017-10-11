@@ -23,6 +23,8 @@ class AssignmentsController < ApplicationController
   def create
     @assignment = Assignment.new(assignment_params)
 
+    @enrollment.course_id = params[:schedule_id]
+
     if @assignment.save
       redirect_to @assignment, notice: 'Assignment was successfully created.'
     else
