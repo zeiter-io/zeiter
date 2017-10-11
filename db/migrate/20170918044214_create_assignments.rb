@@ -5,5 +5,7 @@ class CreateAssignments < ActiveRecord::Migration[5.1]
       t.integer :schedule_id
       t.timestamps
     end
+    
+    add_index :assignments, [:user_id, :schedule_id], unique: true
   end
 end

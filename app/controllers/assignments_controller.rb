@@ -29,7 +29,8 @@ class AssignmentsController < ApplicationController
       #redirect_to @assignment, notice: 'Assignment was successfully created.'
       redirect_to @assignment.schedule, notice: "#{@assignment.user.first_name} #{@assignment.user.last_name} added to #{@assignment.schedule.name}"
     else
-      render :new
+      #redirect_to @assignment.schedule
+      render schedule_url(@assignment.schedule.id)
     end
   end
 

@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170920043952) do
     t.integer "schedule_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "schedule_id"], name: "index_assignments_on_user_id_and_schedule_id", unique: true
   end
 
   create_table "schedules", force: :cascade do |t|
