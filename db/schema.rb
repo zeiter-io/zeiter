@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920043952) do
+ActiveRecord::Schema.define(version: 20171010080025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,24 @@ ActiveRecord::Schema.define(version: 20170920043952) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "shifts", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.decimal "duration"
+    t.boolean "repeat"
+    t.integer "repeat_every"
+    t.string "repeat_every_unit"
+    t.datetime "repeat_end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "swappable"
+    t.integer "shift_id"
+    t.integer "clone_of"
+    t.integer "user_id"
+    t.integer "schedule_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -44,9 +62,12 @@ ActiveRecord::Schema.define(version: 20170920043952) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "god", default: false
+    t.boolean "supervisor", default: false
+    t.boolean "admin", default: false
     t.string "first_name"
-    t.string "middle_name"
     t.string "last_name"
+    t.string "middle_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["first_name"], name: "index_users_on_first_name"
     t.index ["last_name"], name: "index_users_on_last_name"

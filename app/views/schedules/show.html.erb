@@ -1,5 +1,7 @@
+<div class="container-fluid">
 <p id="notice"><%= notice %></p>
 
+<h1><%= @schedule.name %></h1>
 <p>
   <strong>Name:</strong>
   <%= @schedule.name %>
@@ -9,10 +11,84 @@
   <strong>Code:</strong>
   <%= @schedule.ucode %>
 </p>
+
+<h4>Users in <%= @schedule.name %></h4>
+<%= link_to 'Add User', users_path, class: 'btn btn-outline-primary btn-sm' %>
+<% @schedule.assignments.each do |assignment| %>
+    <p class="pad-bottom-10"><%= assignment.user.email %><p>
+<% end %>
+
+<br />
+<br />
+<br />
+<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
+<%= link_to 'Back', schedules_path %>
+
+<div class="pad-top-20">
+  <h1>Shifts for <%= @schedule.name %></h1>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Schedule</th>
+      <th>Assigned To</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Duration</th>
+      <th>Repeat</th>
+      <th>Repeat every</th>
+      <th>Repeat every unit</th>
+      <th>Repeat end date</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @shifts.each do |shift| %>
+        <tr>
+          <td><%= shift.name %></td>
+          <td><%= Schedule.find(shift.schedule_id).name %></td>
+          <td><%= User.find(shift.user_id).full_name %></td>
+          <td><%= shift.start_time %></td>
+          <td><%= shift.end_time %></td>
+          <td><%= shift.duration %></td>
+          <td><%= shift.repeat %></td>
+          <td><%= shift.repeat_every %></td>
+          <td><%= shift.repeat_every_unit %></td>
+          <td><%= shift.repeat_end_date %></td>
+          <td><%= link_to 'Show', shift %></td>
+          <td><%= link_to 'Edit', edit_shift_path(shift) %></td>
+          <td><%= link_to 'Destroy', shift, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Shift', new_shift_path %>
+
+</div>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+<strong>Name:</strong>
+<%= @schedule.name %>
+</p>
+
+<p>
+<strong>Code:</strong>
+<%= @schedule.ucode %>
+</p>
+
 <h4>Users in the <%= @schedule.name %></h4>
 <% @schedule.assignments.each do |assignment| %>
-  <p><%= assignment.user.email %><p> <break>
+<p><%= assignment.user.email %><p> <break>
 <% end %>
 
 <%= link_to 'Edit', edit_schedule_path(@schedule) %> |
 <%= link_to 'Back', schedules_path %>
+

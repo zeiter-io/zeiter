@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @shift.name %>
+</p>
+
+<p>
+  <strong>Schedule:</strong>
+  <%= Schedule.find(@shift.schedule_id).name %>
+</p>
+
+<p>
+  <strong>Assigned To:</strong>
+  <%= User.find(@shift.user_id).full_name %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @shift.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @shift.end_time %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @shift.duration %>
+</p>
+
+<p>
+  <strong>Repeat:</strong>
+  <%= @shift.repeat %>
+</p>
+
+<p>
+  <strong>Repeat every:</strong>
+  <%= @shift.repeat_every %>
+</p>
+
+<p>
+  <strong>Repeat every unit:</strong>
+  <%= @shift.repeat_every_unit %>
+</p>
+
+<p>
+  <strong>Repeat end date:</strong>
+  <%= @shift.repeat_end_date %>
+</p>
+
+<%= link_to 'Edit', edit_shift_path(@shift) %> |
+<%= link_to 'Back', shifts_path %>

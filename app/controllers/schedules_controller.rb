@@ -8,6 +8,7 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1
   def show
+    @shifts = @schedule.shifts
   end
 
   # GET /schedules/new
