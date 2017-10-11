@@ -17,6 +17,7 @@
     <p><%= assignment.user.email %><p>
   <% end%>
 <% end %>
+<%= link_to 'Add User', new_user_path %><br><br>
 
 <%= link_to 'Edit', edit_schedule_path(@schedule) %> |
 <%= link_to 'Back', schedules_path %>
