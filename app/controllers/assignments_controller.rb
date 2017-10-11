@@ -23,10 +23,11 @@ class AssignmentsController < ApplicationController
   def create
     @assignment = Assignment.new(assignment_params)
 
-    @enrollment.course_id = params[:schedule_id]
+    @assignment.schedule_id = params[:schedule_id]
 
     if @assignment.save
-      redirect_to @assignment, notice: 'Assignment was successfully created.'
+      #redirect_to @assignment, notice: 'Assignment was successfully created.'
+      redirect_to @assignment.schedule, notice: "#{@assignment.user.first_name} #{@assignment.user.last_name} added to #{@assignment.schedule.name}"
     else
       render :new
     end
@@ -55,6 +56,7 @@ class AssignmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def assignment_params
-      params.fetch(:assignment, {})
+      #params.fetch(:assignment, {})
+      params.require(:assignment).permit(:user_id, :schedule_id)
     end
 end

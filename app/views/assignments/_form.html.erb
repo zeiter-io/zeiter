@@ -1,17 +1,22 @@
-<%= form_with(model: assignment, local: true) do |form| %>
-  <% if assignment.errors.any? %>
+<%= form_for([@schedule, @assignment], local: true) do |form| %>
+  <% if @assignment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
 
       <ul>
-      <% assignment.errors.full_messages.each do |message| %>
+      <% @assignment.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
+   <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :user_id %>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Add User" %>
   </div>
 <% end %>
