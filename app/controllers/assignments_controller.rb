@@ -45,7 +45,8 @@ class AssignmentsController < ApplicationController
   # DELETE /assignments/1
   def destroy
     @assignment.destroy
-    redirect_to assignments_url, notice: 'Assignment was successfully destroyed.'
+    @schedule = @assignment.schedule
+    render "schedules/show"
   end
 
   private
