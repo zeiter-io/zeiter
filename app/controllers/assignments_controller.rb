@@ -30,7 +30,8 @@ class AssignmentsController < ApplicationController
       redirect_to @assignment.schedule, notice: "#{@assignment.user.first_name} #{@assignment.user.last_name} added to #{@assignment.schedule.name}"
     else
       #redirect_to @assignment.schedule
-      render schedule_url(@assignment.schedule.id)
+      @schedule = @assignment.schedule
+      render "schedules/show"
     end
   end
 
