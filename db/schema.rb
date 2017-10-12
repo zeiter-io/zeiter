@@ -62,12 +62,9 @@ ActiveRecord::Schema.define(version: 20171010080025) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "god", default: false
-    t.boolean "supervisor", default: false
-    t.boolean "admin", default: false
     t.string "first_name"
-    t.string "last_name"
     t.string "middle_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["first_name"], name: "index_users_on_first_name"
     t.index ["last_name"], name: "index_users_on_last_name"
