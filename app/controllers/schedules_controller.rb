@@ -9,6 +9,7 @@ class SchedulesController < ApplicationController
   # GET /schedules/1
   def show
     @assignment = @schedule.assignments.new
+    @shifts = @schedule.shifts
   end
 
   # GET /schedules/new

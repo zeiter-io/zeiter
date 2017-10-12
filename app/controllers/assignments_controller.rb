@@ -1,11 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
 
-  # GET /assignments
-  def index
-    @assignments = Assignment.all
-  end
-
   # GET /assignments/1
   def show
   end
@@ -29,24 +24,15 @@ class AssignmentsController < ApplicationController
       redirect_to @assignment.schedule, notice: "#{@assignment.user.first_name} #{@assignment.user.last_name} added to #{@assignment.schedule.name}"
     else
       @schedule = @assignment.schedule
+      @shifts = @schedule.shifts
       render "schedules/show"
-    end
-  end
-
-  # PATCH/PUT /assignments/1
-  def update
-    if @assignment.update(assignment_params)
-      redirect_to @assignment, notice: 'Assignment was successfully updated.'
-    else
-      render :edit
     end
   end
 
   # DELETE /assignments/1
   def destroy
     @assignment.destroy
-    @schedule = @assignment.schedule
-    render "schedules/show"
+    redirect_to @assignment.schedule, notice: "#{@assignment.user.first_name} #{@assignment.user.last_name} removed from #{@assignment.schedule.name}"    
   end
 
   private
