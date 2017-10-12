@@ -26,10 +26,8 @@ class AssignmentsController < ApplicationController
     @assignment.schedule_id = params[:schedule_id]
 
     if @assignment.save
-      #redirect_to @assignment, notice: 'Assignment was successfully created.'
       redirect_to @assignment.schedule, notice: "#{@assignment.user.first_name} #{@assignment.user.last_name} added to #{@assignment.schedule.name}"
     else
-      #redirect_to @assignment.schedule
       @schedule = @assignment.schedule
       render "schedules/show"
     end
