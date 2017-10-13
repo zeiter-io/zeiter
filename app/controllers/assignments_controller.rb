@@ -21,7 +21,7 @@ class AssignmentsController < ApplicationController
     @assignment.schedule_id = params[:schedule_id]
 
     if @assignment.save
-      redirect_to @assignment.schedule, notice: "#{@assignment.user.first_name} #{@assignment.user.last_name} added to #{@assignment.schedule.name}"
+      redirect_to @assignment.schedule, notice: "#{@assignment.user.full_name} added to #{@assignment.schedule.name}"
     else
       @schedule = @assignment.schedule
       @shifts = @schedule.shifts
@@ -32,7 +32,7 @@ class AssignmentsController < ApplicationController
   # DELETE /assignments/1
   def destroy
     @assignment.destroy
-    redirect_to @assignment.schedule, notice: "#{@assignment.user.first_name} #{@assignment.user.last_name} removed from #{@assignment.schedule.name}"    
+    redirect_to @assignment.schedule, notice: "#{@assignment.user.full_name} removed from #{@assignment.schedule.name}"    
   end
 
   private
