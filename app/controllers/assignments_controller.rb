@@ -17,9 +17,8 @@ class AssignmentsController < ApplicationController
   # POST /assignments
   def create
     @assignment = Assignment.new(assignment_params)
-
-    @assignment.schedule_id = params[:schedule_id]
-
+    @assignment.schedule_id = Schedule.find(params[:schedule_id]).id
+    
     if @assignment.save
       redirect_to @assignment.schedule, notice: "#{@assignment.user.full_name} added to #{@assignment.schedule.name}"
     else
