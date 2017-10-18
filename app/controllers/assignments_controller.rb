@@ -17,6 +17,9 @@ class AssignmentsController < ApplicationController
   # POST /assignments
   def create
     @assignment = Assignment.new(assignment_params)
+    # verify the schedule exists
+    schedule_id = Schedule.find(params[:schedule_id])
+    raise ArgumentError, "Schedule ID #{params[:schedule_id]} not found." unless schedule_id
     @assignment.schedule_id = Schedule.find(params[:schedule_id]).id
     
     if @assignment.save
