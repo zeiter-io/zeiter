@@ -1,11 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
 
-  # GET /assignments
-  def index
-    @assignments = Assignment.all
-  end
-
   # GET /assignments/1
   def show
   end
@@ -22,27 +17,24 @@ class AssignmentsController < ApplicationController
   # POST /assignments
   def create
     @assignment = Assignment.new(assignment_params)
-
+    # verify the schedule exists
+    schedule_id = Schedule.find(params[:schedule_id])
+    raise ArgumentError, "Schedule ID #{params[:schedule_id]} not found." unless schedule_id
+    @assignment.schedule_id = Schedule.find(params[:schedule_id]).id
+    
     if @assignment.save
-      redirect_to @assignment, notice: 'Assignment was successfully created.'
+      redirect_to @assignment.schedule, notice: "#{@assignment.user.full_name} added to #{@assignment.schedule.name}"
     else
-      render :new
-    end
-  end
-
-  # PATCH/PUT /assignments/1
-  def update
-    if @assignment.update(assignment_params)
-      redirect_to @assignment, notice: 'Assignment was successfully updated.'
-    else
-      render :edit
+      @schedule = @assignment.schedule
+      @shifts = @schedule.shifts
+      render "schedules/show"
     end
   end
 
   # DELETE /assignments/1
   def destroy
     @assignment.destroy
-    redirect_to assignments_url, notice: 'Assignment was successfully destroyed.'
+    redirect_to @assignment.schedule, notice: "#{@assignment.user.full_name} removed from #{@assignment.schedule.name}"    
   end
 
   private
@@ -53,6 +45,7 @@ class AssignmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def assignment_params
-      params.fetch(:assignment, {})
+      #params.fetch(:assignment, {})
+      params.require(:assignment).permit(:user_id, :schedule_id)
     end
 end

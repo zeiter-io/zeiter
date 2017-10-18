@@ -12,12 +12,6 @@
   <%= @schedule.ucode %>
 </p>
 
-<h4>Users in <%= @schedule.name %></h4>
-<%= link_to 'Add User', users_path, class: 'btn btn-outline-primary btn-sm' %>
-<% @schedule.assignments.each do |assignment| %>
-    <p class="pad-bottom-10"><%= assignment.user.email %><p>
-<% end %>
-
 <br />
 <br />
 <br />
@@ -85,9 +79,31 @@
 </p>
 
 <h4>Users in the <%= @schedule.name %></h4>
-<% @schedule.assignments.each do |assignment| %>
-<p><%= assignment.user.email %><p> <break>
-<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schedule.assignments.each do |assignment| %>
+      <tr>
+        <% if !assignment.new_record? %>
+          <td><%= assignment.user.first_name %> <%= assignment.user.last_name %></td>
+          <td><%= assignment.user.email %><td>
+          <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h4>Add User</h4>
+<%= render 'assignments/form'%>
 
 <%= link_to 'Edit', edit_schedule_path(@schedule) %> |
 <%= link_to 'Back', schedules_path %>
