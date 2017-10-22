@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "assignments/index", type: :view do
+RSpec.describe "enrollments/index", type: :view do
   before(:each) do
-    assign(:assignments, [
-      Assignment.create!(),
-      Assignment.create!()
+    assign(:enrollments, [
+      Enrollment.create!(),
+      Enrollment.create!()
     ])
   end
 
-  it "renders a list of assignments" do
+  it "renders a list of enrollments" do
     render
   end
 end

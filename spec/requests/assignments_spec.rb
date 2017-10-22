@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Assignments", type: :request do
-  describe "GET /assignments" do
+RSpec.describe "Enrollments", type: :request do
+  describe "GET /enrollments" do
     it "works! (now write some real specs)" do
-      get assignments_path
+      get enrollments_path
       expect(response).to have_http_status(200)
     end
   end
