@@ -3,8 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :lockable, :timeoutable
-  has_many :assignments, dependent: :destroy
-  has_many :schedules, through: :assignments
+  has_many :enrollments, dependent: :destroy
+  has_many :schedules, through: :enrollments
 
   has_many :shifts
 

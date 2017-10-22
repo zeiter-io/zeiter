@@ -1,38 +1,38 @@
 require "rails_helper"
 
-RSpec.describe AssignmentsController, type: :routing do
+RSpec.describe EnrollmentsController, type: :routing do
   describe "routing" do
 
     it "routes to #index" do
-      expect(:get => "/assignments").to route_to("assignments#index")
+      expect(:get => "/enrollments").to route_to("enrollments#index")
     end
 
     it "routes to #new" do
-      expect(:get => "/assignments/new").to route_to("assignments#new")
+      expect(:get => "/enrollments/new").to route_to("enrollments#new")
     end
 
     it "routes to #show" do
-      expect(:get => "/assignments/1").to route_to("assignments#show", :id => "1")
+      expect(:get => "/enrollments/1").to route_to("enrollments#show", :id => "1")
     end
 
     it "routes to #edit" do
-      expect(:get => "/assignments/1/edit").to route_to("assignments#edit", :id => "1")
+      expect(:get => "/enrollments/1/edit").to route_to("enrollments#edit", :id => "1")
     end
 
     it "routes to #create" do
-      expect(:post => "/assignments").to route_to("assignments#create")
+      expect(:post => "/enrollments").to route_to("enrollments#create")
     end
 
     it "routes to #update via PUT" do
-      expect(:put => "/assignments/1").to route_to("assignments#update", :id => "1")
+      expect(:put => "/enrollments/1").to route_to("enrollments#update", :id => "1")
     end
 
     it "routes to #update via PATCH" do
-      expect(:patch => "/assignments/1").to route_to("assignments#update", :id => "1")
+      expect(:patch => "/enrollments/1").to route_to("enrollments#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/assignments/1").to route_to("assignments#destroy", :id => "1")
+      expect(:delete => "/enrollments/1").to route_to("enrollments#destroy", :id => "1")
     end
 
   end

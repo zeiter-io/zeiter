@@ -16,7 +16,7 @@ schedules = Schedule.create([
   { name: "Bar Afternoon Schedule"}
 ])
 
-assignments = Assignment.create([
+enrollments = Enrollment.create([
   {user_id: 1, schedule_id: 1},
   {user_id: 2, schedule_id: 1},
   {user_id: 3, schedule_id: 2},

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "assignments/show", type: :view do
+RSpec.describe "enrollments/show", type: :view do
   before(:each) do
-    @assignment = assign(:assignment, Assignment.create!())
+    @enrollment = assign(:enrollment, Enrollment.create!())
   end
 
   it "renders attributes in <p>" do

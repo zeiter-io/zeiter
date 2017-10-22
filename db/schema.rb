@@ -15,12 +15,12 @@ ActiveRecord::Schema.define(version: 20171010080025) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "assignments", force: :cascade do |t|
+  create_table "enrollments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "schedule_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "schedule_id"], name: "index_assignments_on_user_id_and_schedule_id", unique: true
+    t.index ["user_id", "schedule_id"], name: "index_enrollments_on_user_id_and_schedule_id", unique: true
   end
 
   create_table "schedules", force: :cascade do |t|

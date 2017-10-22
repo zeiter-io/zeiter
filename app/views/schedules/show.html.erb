@@ -90,12 +90,12 @@
   </thead>
 
   <tbody>
-    <% @schedule.assignments.each do |assignment| %>
+    <% @schedule.enrollments.each do |enrollment| %>
       <tr>
-        <% if !assignment.new_record? %>
-          <td><%= assignment.user.first_name %> <%= assignment.user.last_name %></td>
-          <td><%= assignment.user.email %><td>
-          <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if !enrollment.new_record? %>
+          <td><%= enrollment.user.first_name %> <%= enrollment.user.last_name %></td>
+          <td><%= enrollment.user.email %><td>
+          <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end%>
       </tr>
     <% end %>
@@ -103,7 +103,7 @@
 </table>
 
 <h4>Add User</h4>
-<%= render 'assignments/form'%>
+<%= render 'enrollments/form'%>
 
 <%= link_to 'Edit', edit_schedule_path(@schedule) %> |
 <%= link_to 'Back', schedules_path %>

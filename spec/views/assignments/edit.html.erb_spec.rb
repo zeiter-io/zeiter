@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "assignments/edit", type: :view do
+RSpec.describe "enrollments/edit", type: :view do
   before(:each) do
-    @assignment = assign(:assignment, Assignment.create!())
+    @enrollment = assign(:enrollment, Enrollment.create!())
   end
 
-  it "renders the edit assignment form" do
+  it "renders the edit enrollment form" do
     render
 
-    assert_select "form[action=?][method=?]", assignment_path(@assignment), "post" do
+    assert_select "form[action=?][method=?]", enrollment_path(@enrollment), "post" do
     end
   end
 end
