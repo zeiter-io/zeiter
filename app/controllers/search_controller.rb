@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
 
-  def typeahead
+  def global
     keyword = ActionController::Base.helpers.sanitize params['query']
 
     user_results = User.search(keyword,

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # Global Search - Typeahead feature
   resources :search do
     collection do
-      get :typeahead
+      get :global
     end
   end
 

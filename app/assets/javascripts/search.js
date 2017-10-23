@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function(){
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     remote: {
-      url: '/search/typeahead?query=%q',
+      url: '/search/global?query=%q',
       wildcard: '%q'
     }
   });
