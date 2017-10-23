@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'home/index'
-  get 'users/index'
+  resources :users
 
   resources :schedules do
     resources :enrollments, shallow: true, except: :index
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'schedules/:id/enrollments', to: redirect('/schedules/%{id}')
 
   # Global Search - Typeahead feature
-  resources :users do
+  resources :search do
     collection do
       get :typeahead
     end

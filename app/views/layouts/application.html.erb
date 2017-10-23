@@ -58,7 +58,7 @@
 
             <!-- Global Search -->
             <% if user_signed_in? %>
-                <%= form_for(users_path, method: 'get', class: 'form-inline', role: 'search', local: true) do %>
+                <%= form_for(typeahead_search_index_path, method: 'get', class: 'form-inline', role: 'search', local: true) do %>
                     <%= text_field_tag(:query,
                                        params[:query],
                                        placeholder:    'Search User',
