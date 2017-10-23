@@ -13,6 +13,7 @@
  */
 
 @import "bootstrap";
+@import "users";
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,500');
 @import url('https://fonts.googleapis.com/css?family=Asap+Condensed:500');
@@ -94,4 +95,8 @@ h1 {
   color: $accent-color;
   font-size: 2.35em;
   padding-bottom: 30px;
+}
+
+.hidden {
+  display: none;
 }

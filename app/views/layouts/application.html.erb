@@ -56,15 +56,22 @@
               </li>
             </ul>
 
-            <!-- User Search -->
+            <!-- Global Search -->
             <% if user_signed_in? %>
-                <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="text" placeholder="Search User" aria-label="Search User">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                <%= form_for(users_path, method: 'get', class: 'form-inline', role: 'search', local: true) do %>
+                    <%= text_field_tag(:query,
+                                       params[:query],
+                                       placeholder:    'Search User',
+                                       class:          'form-control form-control-sm',
+                                       id:             'searchTypeahead',
+                                       autocomplete:   :off,
+                                       autocorrect:    :off,
+                                       autocapitalize: :off) %>
+                    <%= submit_tag('', name: nil, class: 'hidden', id: 'searchBtn') %>
+                <% end %>
             <% end %>
 
-        <% else %>
+      <% else %>
 
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
