@@ -2,13 +2,10 @@ Rails.application.routes.draw do
   resources :shifts
   devise_for :users
 
-  # Global Search - Typeahead drop down
-  resources :users do
-    collection do
-      get :typeahead
-    end
-  end
+  get 'home/index'
+  get 'users/index'
 
+  resources :users
   resources :schedules do
     resources :enrollments, shallow: true, except: :index
   end
