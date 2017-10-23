@@ -53,7 +53,10 @@ gem 'bootstrap', '~> 4.0.0.beta'
 # @see https://stackoverflow.com/questions/38663706/loaderror-could-not-load-the-listen-gem-rails-5
 gem 'listen', '>= 3.0.5', '< 3.2'
 
-# Global search
+# Global search +
+#  fastJSON parser
+# @see https://github.com/ankane/searchkick#performance
+gem 'oj'
 gem 'searchkick'
 
 # Use Capistrano for deployment
