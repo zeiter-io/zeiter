@@ -8,6 +8,8 @@ class Schedule < ApplicationRecord
   validates :name, presence: true
   validates :ucode, uniqueness: true
 
+  searchkick word_start: [:name]
+
   protected
 
   def generate_ucode
