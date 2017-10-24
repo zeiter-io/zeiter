@@ -19,14 +19,17 @@ class EnrollmentsController < ApplicationController
     @enrollment = Enrollment.new(enrollment_params)
     # verify the schedule exists
     schedule_id = Schedule.find(params[:schedule_id])
+    user =  User.find_by! email: enrollment_params[:user_id]
     raise ArgumentError, "Schedule ID #{params[:schedule_id]} not found." unless schedule_id
     @enrollment.schedule_id = Schedule.find(params[:schedule_id]).id
+    @enrollment.user_id = user.id
     
     if @enrollment.save
       redirect_to @enrollment.schedule, notice: "#{@enrollment.user.full_name} added to #{@enrollment.schedule.name}"
     else
       @schedule = @enrollment.schedule
       @shifts = @schedule.shifts
+      @enrollment.user_id = ""
       render "schedules/show"
     end
   end
@@ -45,7 +48,6 @@ class EnrollmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def enrollment_params
-      #params.fetch(:enrollment, {})
       params.require(:enrollment).permit(:user_id, :schedule_id)
     end
 end
