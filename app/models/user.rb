@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :schedules, through: :enrollments
   has_many :shifts
 
+  searchkick callbacks: :async # Background indexing
   searchkick word_start: [:first_name, :last_name]
 
   #
@@ -22,8 +23,8 @@ class User < ApplicationRecord
   #
   def self.search_by_name(keyword)
     # Nil check and make keyword case insensitive
-    keyword ? keyword.downcase! : (return nil)
-    keyword = keyword.split(" ")
-    where("lower(first_name) LIKE ? AND lower(last_name) LIKE ?", "%#{keyword[0]}%", "%#{keyword[1]}%")
+    return nil unless keyword
+    keyword = keyword.downcase.split(" ")
+    where("lower(first_name) = ? AND lower(last_name) = ?", "%#{keyword[0]}%", "%#{keyword[1]}%")
   end # search_by_name
 end

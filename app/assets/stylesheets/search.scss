@@ -1,3 +1,6 @@
+// Global Variables
+$accent-color: #5E35B1;
+
 // Twitter Typeahead
 span.twitter-typeahead .tt-menu {
   cursor: pointer;
@@ -61,3 +64,11 @@ span.twitter-typeahead .disabled.tt-suggestion:focus, span.twitter-typeahead .di
 
 .input-group span.twitter-typeahead .tt-menu {
   top: 2.375rem !important; }
+
+// Index
+.search-results .page-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: $accent-color;
+  font-size: 1.75em;
+}

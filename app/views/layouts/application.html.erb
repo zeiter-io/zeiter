@@ -43,7 +43,6 @@
       </ul>
 
       <!-- User Search -->
-      <form class="form-inline my-2 my-lg-0">
         <% if user_signed_in? %>
 
             <span class="navbar-text">Logged in as <strong><%= current_user.email %></strong>.</span>
@@ -58,7 +57,7 @@
 
             <!-- Global Search -->
             <% if user_signed_in? %>
-                <%= form_for(global_search_index_path, method: 'get', class: 'form-inline', role: 'search', local: true) do %>
+                <%= form_tag(all_search_index_path, method: 'get', class: 'form-inline') do %>
                     <%= text_field_tag(:query,
                                        params[:query],
                                        placeholder:    'Search User',
@@ -83,7 +82,6 @@
             </ul>
 
         <% end %>
-      </form>
     </div>
   </nav>
 

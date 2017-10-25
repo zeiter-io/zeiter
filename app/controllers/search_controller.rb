@@ -1,5 +1,15 @@
 class SearchController < ApplicationController
 
+  def index
+  end
+
+  def all
+    @user = User.search_by_name params[:query]
+    @schedule = Schedule.search_by_name params[:query]
+    @shift = Shift.search_by_name params[:query]
+    render 'index'
+  end
+
   def global
     keyword = ActionController::Base.helpers.sanitize params['query']
 
@@ -8,21 +18,21 @@ class SearchController < ApplicationController
                                match: :word_start,
                                limit: 10,
                                load: false,
-                               misspellings: {below: 5}).collect {|r| "#{r.first_name} #{r.last_name}"}
+                               misspellings: {below: 5}).records
 
     schedule_results = Schedule.search(keyword,
                                        fields: ['name'],
                                        match: :word_start,
                                        limit: 10,
                                        load: false,
-                                       misspellings: {below: 5}).collect {|r| "#{r.name}"}
+                                       misspellings: {below: 5}).records
 
     shift_results = Shift.search(keyword,
                                  fields: ['name'],
                                  match: :word_start,
                                  limit: 10,
                                  load: false,
-                                 misspellings: {below: 5}).collect {|r| "#{r.name}"}
+                                 misspellings: {below: 5}).records
 
     result = user_results + schedule_results + shift_results
 

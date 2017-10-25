@@ -8,6 +8,7 @@ class Schedule < ApplicationRecord
   validates :name, presence: true
   validates :ucode, uniqueness: true
 
+  searchkick callbacks: :async # Background indexing
   searchkick word_start: [:name]
 
   protected
@@ -28,5 +29,14 @@ class Schedule < ApplicationRecord
       return
     end
   end
+
+  #
+  # Search a user by Schedule name
+  #
+  def self.search_by_name(keyword)
+    # Nil check and make keyword case insensitive
+    return nil unless keyword
+    where("name = ?", "%#{keyword}%")
+  end # search_by_name
   
 end

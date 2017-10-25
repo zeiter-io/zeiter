@@ -1,0 +1,28 @@
+<div class="container-fluid search-results">
+
+  <% if @users.count > 0 %>
+  <!-- Display users table if any results exist -->
+  <span class="page-title">Matching Users</span>
+  <table class="table table-hover">
+    <thead>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Options</th>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.email %></td>
+          <td>
+            <%= link_to 'Details', user, class: 'btn btn-outline-primary' %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <% end  %>
+
+</div>
