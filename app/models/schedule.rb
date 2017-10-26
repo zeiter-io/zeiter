@@ -8,8 +8,8 @@ class Schedule < ApplicationRecord
   validates :name, presence: true
   validates :ucode, uniqueness: true
 
-  searchkick callbacks: :async # Background indexing
-  searchkick word_start: [:name]
+  # Background indexing + Only match start of name
+  searchkick callbacks: :async, word_start: [:name]
 
   protected
 

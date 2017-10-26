@@ -2,8 +2,8 @@ class Shift < ApplicationRecord
   belongs_to :schedule
   belongs_to :user
 
-  searchkick callbacks: :async # Background indexing
-  searchkick word_start: [:name]
+  # Background indexing + Only match start of name
+  searchkick callbacks: :async, word_start: [:name]
 
   #
   # Search a user by Shift name

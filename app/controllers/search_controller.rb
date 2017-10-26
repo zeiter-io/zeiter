@@ -17,24 +17,23 @@ class SearchController < ApplicationController
                                fields: ['first_name', 'last_name'],
                                match: :word_start,
                                limit: 10,
-                               load: false,
-                               misspellings: {below: 5}).records
+                               load: true).records
 
     schedule_results = Schedule.search(keyword,
                                        fields: ['name'],
                                        match: :word_start,
                                        limit: 10,
-                                       load: false,
-                                       misspellings: {below: 5}).records
+                                       load: true).records
 
     shift_results = Shift.search(keyword,
                                  fields: ['name'],
                                  match: :word_start,
                                  limit: 10,
-                                 load: false,
-                                 misspellings: {below: 5}).records
+                                 load: true).records
 
-    result = user_results + schedule_results + shift_results
+    result = user_results.map {|u| u.first_name + ' ' + u.last_name} +
+        schedule_results.map { |sch| sch.name } +
+        shift_results.map { |sh| sh.name }
 
     render json: result
   end

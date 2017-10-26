@@ -8,8 +8,8 @@ class User < ApplicationRecord
   has_many :schedules, through: :enrollments
   has_many :shifts
 
-  searchkick callbacks: :async # Background indexing
-  searchkick word_start: [:first_name, :last_name]
+  # Background indexing + Only match start of name
+  searchkick callbacks: :async, word_start: [:first_name, :last_name]
 
   #
   # Returns user's full name
