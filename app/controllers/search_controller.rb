@@ -14,16 +14,16 @@ class SearchController < ApplicationController
     keyword = ActionController::Base.helpers.sanitize params['query']
 
     user_results = User.search(keyword,
-                               fields: ['first_name', 'last_name'],
+                               fields: ['first_name'],
                                match: :word_start,
                                limit: 10,
                                load: true).records
 
-    schedule_results = Schedule.search(keyword,
-                                       fields: ['name'],
-                                       match: :word_start,
-                                       limit: 10,
-                                       load: true).records
+    # schedule_results = Schedule.search(keyword,
+    #                                    fields: ['name'],
+    #                                    match: :word_start,
+    #                                    limit: 10,
+    #                                    load: true).records
 
     shift_results = Shift.search(keyword,
                                  fields: ['name'],

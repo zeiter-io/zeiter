@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :shifts
 
   # Background indexing + Only match start of name
-  searchkick callbacks: :async, word_start: [:first_name, :last_name]
+  searchkick callbacks: :async, word_start: [:first_name]
 
   #
   # Returns user's full name
