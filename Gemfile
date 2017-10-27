@@ -56,7 +56,7 @@ gem 'listen', '>= 3.0.5', '< 3.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development do
+group :development, :test do
   # pry + byebug
   gem 'pry-byebug'
   gem 'pry-awesome_print'
@@ -77,9 +77,6 @@ group :development do
   gem 'spring'
 
   gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
