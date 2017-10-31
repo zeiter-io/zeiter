@@ -29,11 +29,11 @@ RSpec.describe SchedulesController, type: :controller do
   # Schedule. As you add validations to Schedule, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {name: "Night Schedule"}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {name: ""}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -44,7 +44,7 @@ RSpec.describe SchedulesController, type: :controller do
   describe "GET #index" do
     it "returns a success response" do
       schedule = Schedule.create! valid_attributes
-      get :index, params: {}, session: valid_session
+      get :index, params: {}
       expect(response).to be_success
     end
   end
