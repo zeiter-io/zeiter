@@ -25,6 +25,6 @@ class User < ApplicationRecord
     # Nil check and make keyword case insensitive
     return nil unless keyword
     keyword = keyword.downcase.split(" ")
-    where("lower(first_name) = ? AND lower(last_name) = ?", "%#{keyword[0]}%", "%#{keyword[1]}%")
+    where("lower(first_name) LIKE ? AND lower(last_name) LIKE ?", "%#{keyword[0]}%", "%#{keyword[1]}%")
   end # search_by_name
 end

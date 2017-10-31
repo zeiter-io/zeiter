@@ -11,6 +11,6 @@ class Shift < ApplicationRecord
   def self.search_by_name(keyword)
     # Nil check and make keyword case insensitive
     return nil unless keyword
-    where("name = ?", "%#{keyword}%")
+    where("lower(name) LIKE ?", "%#{keyword.downcase}%")
   end # search_by_name
 end
