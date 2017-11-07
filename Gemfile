@@ -77,6 +77,9 @@ group :development, :test do
   gem 'spring'
 
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Factory bot for managing all those fixtures
+  gem 'factory_bot_rails', "~> 4.0"
 end
 
 
