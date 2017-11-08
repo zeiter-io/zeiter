@@ -3,14 +3,17 @@ class Shift < ApplicationRecord
   belongs_to :user
 
   # Background indexing + Only match start of name
-  searchkick callbacks: :async, word_start: [:name]
+  searchkick text_start: [:name]
 
   #
   # Search a user by Shift name
   #
   def self.search_by_name(keyword)
-    # Nil check and make keyword case insensitive
+    # Nil check, make keyword case insensitive, and strip whitespace
     return nil unless keyword
-    where("lower(name) LIKE ?", "%#{keyword.downcase}%")
+    keyword = keyword.downcase.strip
+
+    # Start of name should match
+    where("lower(name) LIKE ?", "#{keyword.downcase}%")
   end # search_by_name
 end

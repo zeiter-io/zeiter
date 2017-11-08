@@ -9,7 +9,14 @@ class User < ApplicationRecord
   has_many :shifts
 
   # Background indexing + Only match start of name
-  searchkick callbacks: :async, word_start: [:first_name]
+  searchkick text_start: [:first_name]
+
+  # Control what data is indexed
+  def search_data
+    {
+        first_name: first_name
+    }
+  end
 
   #
   # Returns user's full name
@@ -22,9 +29,11 @@ class User < ApplicationRecord
   # Search a user by first and last name
   #
   def self.search_by_name(keyword)
-    # Nil check and make keyword case insensitive
+    # Nil check, make keyword case insensitive, and strip whitespace
     return nil unless keyword
-    keyword = keyword.downcase.split(" ")
-    where("lower(first_name) LIKE ? AND lower(last_name) LIKE ?", "%#{keyword[0]}%", "%#{keyword[1]}%")
+    keyword = keyword.downcase.strip
+
+    # Start of name should match
+    where("lower(first_name) LIKE ?", "#{keyword}%")
   end # search_by_name
 end
