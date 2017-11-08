@@ -35,7 +35,7 @@
           <%= link_to "Users", users_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Pricing", '#', class: 'nav-link' %>
+          <%= link_to "Shifts", shifts_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
           <%= link_to "Contact Us", '#', class: 'nav-link' %>
@@ -60,7 +60,7 @@
                 <%= form_tag(all_search_index_path, method: 'get', class: 'form-inline') do %>
                     <%= text_field_tag(:query,
                                        params[:query],
-                                       placeholder:    'Search User',
+                                       placeholder:    'Search User or Shift',
                                        class:          'form-control form-control-sm',
                                        id:             'searchTypeahead',
                                        autocomplete:   :off,
