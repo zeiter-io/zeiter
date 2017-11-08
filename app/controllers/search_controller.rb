@@ -5,11 +5,11 @@ class SearchController < ApplicationController
 
   def all
     @users = User.search_by_name params[:query]
-    # @schedules = Schedule.search_by_name params[:query]
     @shifts = Shift.search_by_name params[:query]
 
-    # If exactly 1 result is returned, redirect to object
-    # Else show all matched results
+    # If exactly 1 result is returned, redirect to object#show
+    # Else show all matched results. Blank search shows all.
+    # User search has highest priority
     if @users.count == 1
       redirect_to @users.first
     elsif @shifts.count == 1
@@ -17,35 +17,31 @@ class SearchController < ApplicationController
     else
       render 'index'
     end
-  end
+  end # def all
 
   def global
     keyword = ActionController::Base.helpers.sanitize params['query']
 
     user_results = User.search(keyword,
-                               fields: ['first_name'],
-                               match: :word_start,
-                               limit: 10,
-                               load: true).records
-
-    # schedule_results = Schedule.search(keyword,
-    #                                    fields: ['name'],
-    #                                    match: :word_start,
-    #                                    limit: 10,
-    #                                    load: true).records
+                               fields:       [:first_name],
+                               match:        :text_start,
+                               limit:        10,
+                               misspellings: false,
+                               load:         true).records
 
     shift_results = Shift.search(keyword,
-                                 fields: ['name'],
-                                 match: :word_start,
-                                 limit: 10,
-                                 load: true).records
+                                 fields:       [:name],
+                                 match:        :text_start,
+                                 limit:        10,
+                                 misspellings: false,
+                                 load:         true).records
 
-    result = user_results.map {|u| u.full_name } +
+    result = user_results.map {|u| u.full_name} +
         # schedule_results.map { |sch| sch.name } +
-        shift_results.map { |sh| sh.name }
+        shift_results.map {|sh| sh.name}
 
     render json: result
-  end
+  end # def global
 
   private
   def user_params
