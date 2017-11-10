@@ -64,6 +64,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
 
+  # For test data creation
+  gem 'faker', '~> 1.8', '>= 1.8.4'
+
   # Use Rspec for testing
   gem 'rspec-rails', '>= 3.5'
 
