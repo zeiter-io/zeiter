@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :enrollments, dependent: :destroy
   has_many :schedules, through: :enrollments
+  has_many :schedules, through: :enrollments, foreign_key: 'schedule_id'
+
   has_many :shifts
 
   # Background indexing + Only match start of name

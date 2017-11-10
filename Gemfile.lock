@@ -84,6 +84,8 @@ GEM
       multi_json
     erubi (1.7.0)
     execjs (2.7.0)
+    faker (1.8.4)
+      i18n (~> 0.5)
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
@@ -138,7 +140,7 @@ GEM
     pry-byebug (3.5.0)
       byebug (~> 9.1)
       pry (~> 0.10)
-    public_suffix (3.0.0)
+    public_suffix (3.0.1)
     puma (3.10.0)
     rack (2.0.3)
     rack-test (0.7.0)
@@ -255,6 +257,7 @@ DEPENDENCIES
   cancancan (~> 2.0)
   capybara (~> 2.13)
   devise
+  faker (~> 1.8, >= 1.8.4)
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
