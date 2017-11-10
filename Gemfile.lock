@@ -67,6 +67,7 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.2)
+    database_cleaner (1.6.2)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -105,7 +106,7 @@ GEM
     mail (2.7.0)
       mini_mime (>= 0.1.1)
     method_source (0.9.0)
-    mini_mime (0.1.4)
+    mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
     multi_json (1.12.2)
@@ -130,7 +131,7 @@ GEM
     pry-byebug (3.5.0)
       byebug (~> 9.1)
       pry (~> 0.10)
-    public_suffix (3.0.0)
+    public_suffix (3.0.1)
     puma (3.10.0)
     rack (2.0.3)
     rack-test (0.7.0)
@@ -241,6 +242,7 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.beta)
   cancancan (~> 2.0)
   capybara (~> 2.13)
+  database_cleaner
   devise
   factory_bot_rails (~> 4.0)
   jbuilder (~> 2.5)

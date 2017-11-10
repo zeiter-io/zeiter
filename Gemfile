@@ -80,6 +80,8 @@ group :development, :test do
 
   # Factory bot for managing all those fixtures
   gem 'factory_bot_rails', "~> 4.0"
+
+  gem 'database_cleaner'
 end
 
 

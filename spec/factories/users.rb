@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :user do
-    first_name 'John'
+    first_name 'Jane'
     last_name 'Doe'
-    email 'john.doe@example.com'
-    active true
+    email 'jane.doe@example.com'
+    password 'test123'
   end
 end
