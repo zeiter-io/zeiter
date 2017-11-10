@@ -2,7 +2,7 @@ class Shift < ApplicationRecord
   belongs_to :schedule
   belongs_to :user
 
-  # Background indexing + Only match start of name
+  # Match start of name
   searchkick text_start: [:name]
 
   #

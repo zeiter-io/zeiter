@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   has_many :shifts
 
-  # Background indexing + Only match start of name
+  # Match start of name
   searchkick text_start: [:first_name]
 
   # Control what data is indexed
