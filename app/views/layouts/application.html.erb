@@ -43,32 +43,35 @@
       </ul>
 
       <!-- User Search -->
+      <% if user_signed_in? %>
+        <div>
+          <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+              <span class="navbar-text">Hello, <strong><%= current_user.email.split('@').first %></strong>!</span>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Profile', edit_user_registration_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item pad-right-20">
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Global Search -->
         <% if user_signed_in? %>
-
-            <span class="navbar-text">Logged in as <strong><%= current_user.email %></strong>.</span>
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <%= link_to 'Profile', edit_user_registration_path, class: 'nav-link' %>
-              </li>
-              <li class="nav-item pad-right-20">
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
-              </li>
-            </ul>
-
-            <!-- Global Search -->
-            <% if user_signed_in? %>
-                <%= form_tag(all_search_index_path, method: 'get', class: 'form-inline') do %>
-                    <%= text_field_tag(:query,
-                                       params[:query],
-                                       placeholder:    'Search User or Shift',
-                                       class:          'form-control form-control-sm',
-                                       id:             'searchTypeahead',
-                                       autocomplete:   :off,
-                                       autocorrect:    :off,
-                                       autocapitalize: :off) %>
-                    <%= submit_tag('', name: nil, class: 'hidden', id: 'searchBtn') %>
-                <% end %>
+            <%= form_tag(all_search_index_path, method: 'get', class: 'form-inline') do %>
+                <%= text_field_tag(:query,
+                                   params[:query],
+                                   placeholder:    'Search User or Shift',
+                                   class:          'form-control form-control-sm',
+                                   id:             'searchTypeahead',
+                                   autocomplete:   :off,
+                                   autocorrect:    :off,
+                                   autocapitalize: :off) %>
+                <%= submit_tag('', name: nil, class: 'hidden', id: 'searchBtn') %>
             <% end %>
+        <% end %>
 
       <% else %>
 
