@@ -1,8 +1,8 @@
 class Schedule < ApplicationRecord
   before_create :generate_ucode
 
-  has_many :users, through: :enrollments
   has_many :enrollments, dependent: :destroy
+  has_many :users, through: :enrollments, foreign_key: 'user_id'
   has_many :shifts
 
   validates :name, presence: true
