@@ -1,4 +1,5 @@
 #check https://relishapp.com/rspec/rspec-rails/docs/ for spec style guidelines
+=begin
 RSpec.describe User, :type => :controller do
   feature 'visits the Schedules link and' do
     context 'when logged in' do
@@ -16,3 +17,4 @@ RSpec.describe User, :type => :controller do
     end
   end
 end
+=end
