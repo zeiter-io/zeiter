@@ -6,6 +6,9 @@ Better scheduling for medium to large teams.
 [Maintaining Specs](#maintaining-specs)
 
 # Testing Philosophy
+>Controller testing has been soft-deprecated in Rails, but you’re still likely to see controller specs in many Rails codebases. The basics covered in this post still apply.
+*Everyday Rails*
+
 Testing in Rails has changed from 100% coverage in unit and controller testing to feature/integration testing.  Originally Rspec scaffolded controller tests and these were used by developers to prove the application state would hold up under use.  Unit tests and Controller tests were expected for each function or method to guarantee that the developer wasn't coding incorrectly.
 
 There isn't a clearly defined source of truth for each of these terms but here's the rundown:
@@ -36,13 +39,15 @@ You may see the differences, we're not passing arguements to methods and watchin
 
 ## Sources
 *in no particular order*
-[Modern testing overview w/ Prathamesh Sonpatki] (https://youtu.be/WAznFdX1O4g)
+
+[Modern testing overview w/ Prathamesh Sonpatki](https://youtu.be/WAznFdX1O4g)
+
 [Nice Rspec Docs on Relish](https://relishapp.com/rspec/rspec-rails/v/3-7/docs)
+
 [SO factory_bot and rspec setup](https://stackoverflow.com/questions/10925116/got-error-cant-be-blank-rails-test)
 
->Controller testing has been soft-deprecated in Rails, but you’re still likely to see controller specs in many Rails codebases. The basics covered in this post still apply. Be sure to read my posts on replacing controller specs with feature specs and request specs for an up-to-date take on testing your code. Thanks!
+[Bye Bye Controller Tests](https://everydayrails.com/2012/04/07/testing-series-rspec-controllers.html)
 
-- [Bye Bye Controller Tests](https://everydayrails.com/2012/04/07/testing-series-rspec-controllers.html)
 [Hello Feature Specs](https://everydayrails.com/2016/09/05/replace-rspec-controller-tests.html)
 
 # Maintaining Specs
