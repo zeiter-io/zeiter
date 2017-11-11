@@ -1,6 +1,8 @@
 # zeiter
 Better scheduling for medium to large teams.
+
 [Testing Philosophy](#testing-philosophy)
+
 [Maintaining Specs](#maintaining-specs)
 
 # Testing Philosophy
@@ -38,10 +40,9 @@ You may see the differences, we're not passing arguements to methods and watchin
 [Nice Rspec Docs on Relish](https://relishapp.com/rspec/rspec-rails/v/3-7/docs)
 [SO factory_bot and rspec setup](https://stackoverflow.com/questions/10925116/got-error-cant-be-blank-rails-test)
 
-```
-Controller testing has been soft-deprecated in Rails, but you’re still likely to see controller specs in many Rails codebases. The basics covered in this post still apply. Be sure to read my posts on replacing controller specs with feature specs and request specs for an up-to-date take on testing your code. Thanks!
-```
-[Bye Bye Controller Tests](https://everydayrails.com/2012/04/07/testing-series-rspec-controllers.html)
+>Controller testing has been soft-deprecated in Rails, but you’re still likely to see controller specs in many Rails codebases. The basics covered in this post still apply. Be sure to read my posts on replacing controller specs with feature specs and request specs for an up-to-date take on testing your code. Thanks!
+
+- [Bye Bye Controller Tests](https://everydayrails.com/2012/04/07/testing-series-rspec-controllers.html)
 [Hello Feature Specs](https://everydayrails.com/2016/09/05/replace-rspec-controller-tests.html)
 
 # Maintaining Specs
