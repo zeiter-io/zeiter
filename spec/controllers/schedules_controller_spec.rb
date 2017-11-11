@@ -29,17 +29,19 @@ RSpec.describe SchedulesController, type: :controller do
   # Schedule. As you add validations to Schedule, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    name: "Night Schedule"
+    { name: "Night Schedule" }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { name: "" }
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # SchedulesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { 
+    { } 
+  }
 
   describe "GET #index" do
     it "returns a success response" do
@@ -97,7 +99,7 @@ RSpec.describe SchedulesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: "Night Man Schedule" }
       }
 
       it "updates the requested schedule" do
