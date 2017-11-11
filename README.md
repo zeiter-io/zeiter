@@ -6,8 +6,7 @@ Better scheduling for medium to large teams.
 [Maintaining Specs](#maintaining-specs)
 
 # Testing Philosophy
->Controller testing has been soft-deprecated in Rails, but you’re still likely to see controller specs in many Rails codebases. The basics covered in this post still apply.
-*Everyday Rails*
+>Controller testing has been soft-deprecated in Rails, but you’re still likely to see controller specs in many Rails codebases. The basics covered in this post still apply. -*Everyday Rails*
 
 Testing in Rails has changed from 100% coverage in unit and controller testing to feature/integration testing.  Originally Rspec scaffolded controller tests and these were used by developers to prove the application state would hold up under use.  Unit tests and Controller tests were expected for each function or method to guarantee that the developer wasn't coding incorrectly.
 
