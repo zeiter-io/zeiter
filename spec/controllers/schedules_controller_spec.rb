@@ -24,12 +24,15 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 RSpec.describe SchedulesController, type: :controller do
+  let(:schedule) { FactoryBot.create :schedule }
+  let(:user) { FactoryBot.create :user }
 
   # This should return the minimal set of attributes required to create a valid
   # Schedule. As you add validations to Schedule, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { name: "Night Schedule" }
+    #{ name: "Night Schedule" }
+    { name: schedule.name }
   }
 
   let(:invalid_attributes) {
@@ -40,14 +43,28 @@ RSpec.describe SchedulesController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # SchedulesController. Be sure to keep this updated too.
   let(:valid_session) { 
-    { } 
+    { 
+      first_name: user.first_name,
+      last_name: user.last_name,
+      email: user.email,
+      password: user.password
+    }
   }
 
   describe "GET #index" do
-    it "returns a success response" do
-      schedule = Schedule.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(response).to be_success
+    context "if a user is not signed in" do
+      it "returns a redirect to sign_in" do
+        schedule = Schedule.create! valid_attributes
+        get :index, params: {}, session: valid_session
+        expect(response).to redirect_to(new_user_session_url)
+      end
+    end
+    context "if user is signed in" do
+      it "returns a success response" do
+        schedule = Schedule.create! valid_attributes
+        get :index, params: {}, session: valid_session
+        expect(response).to redirect_to(schedules_url)
+      end
     end
   end
 
