@@ -55,7 +55,8 @@ You may see the differences, we're not passing arguements to methods and watchin
 >Program testing can be used to show the presence of bugs, but never to show their absence! --Edsger Dijkstra
 
 #### Running Specs
-Run the `rspec` command in your terminal while in the project root.  Output should show Failed, pending, and successful tests. 
+Tests are referred to as `specs`.
+Run the `rspec` command in your terminal while in the project root.  Output should show Failed, pending, and successful tests.  By default all specs under the `/spec` dir will run.  If you wish to run an isolated spec just pass the path with the rspec command like so: `rspec spec/features/my_new_feature_spec.rb`.
 
 #### Dependencies
 [factory_bot](https://github.com/thoughtbot/factory_bot_rails) - Generates objects we'll use for testing.
