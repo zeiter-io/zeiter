@@ -1,7 +1,7 @@
 # zeiter
 Better scheduling for medium to large teams.
 
-###Index
+## Index
 
 [Testing Philosophy](#testing-philosophy)
 
