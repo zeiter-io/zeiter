@@ -64,13 +64,13 @@ Run the `rspec` command in your terminal while in the project root.  Output shou
 [database_cleaner](https://github.com/DatabaseCleaner/database_cleaner) - Destroys records created during testing so we don't try and create things that already exist on subsequent tests.
 
 #### Controller Specs
-Unit testing for controllers.  Unreliable when adding new features.  Good for ensuring models validations work properly.
+Unit testing for controllers.  Unreliable when adding new features.  Good for ensuring model validations work properly and controller interactions are healthy.
 
 #### Routing Specs
 Simulated API requests.  Good for basic testing of URLs and paths to objects. 
 
 #### Feature Specs
-Tests the routes, views, controller, and model; the app state for an action essentially.  Tests for readability and will run slightly slower.
+Tests the routes, views, controller, and model; essentially encapsulates and tests the app state with a defined spec.  Tests for readability from user perspective and will run a little slower than Request specs.
 
 #### Request Specs
-Wrapper around the built in Testing suites [Integration Tests](http://guides.rubyonrails.org/testing.html#integration-testing).  Tests just the rails code without generating views, runs a little faster.
+Wrapper around the built in Rails Testing suites i.e., [Integration Tests](http://guides.rubyonrails.org/testing.html#integration-testing).  Tests just the rails code without generating views, runs a little faster than Feature specs.
