@@ -1,6 +1,8 @@
 # zeiter
 Better scheduling for medium to large teams.
 
+###Index
+
 [Testing Philosophy](#testing-philosophy)
 
 [Maintaining Specs](#maintaining-specs)
@@ -49,9 +51,22 @@ You may see the differences, we're not passing arguements to methods and watchin
 
 [Hello Feature Specs](https://everydayrails.com/2016/09/05/replace-rspec-controller-tests.html)
 
-# Maintaining Specs
+# Specs
 ```
-By three methods we may learn wisdom: 
-First, by reflection, which is noblest; Second, by imitation, which is easiest; and third by experience, which is the bitterest. 
--Confucius
+Program testing can be used to show the presence of bugs, but never to show their absence! 
+--Edsger Dijkstra
 ```
+#### Running Specs
+Run the `rspec` command in your terminal while in the project root.  Output should show Failed, pending, and succesfull tests. 
+
+#### Dependencies
+[factory_bot](https://github.com/thoughtbot/factory_bot_rails) - Generates objects we'll use for testing.
+[database_cleaner](https://github.com/DatabaseCleaner/database_cleaner) - Destroys records created during testing so we don't try and create things that already exist on subsequent tests.
+
+#### Controller Specs
+
+#### Routing Specs
+
+#### Feature Specs
+
+#### Request Specs
