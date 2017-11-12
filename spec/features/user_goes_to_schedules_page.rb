@@ -3,7 +3,7 @@
 RSpec.describe User, :type => :controller do
   feature 'visits the Schedules link and' do
     context 'when logged in' do
-      user = FactoryBot.create :user      
+      user = FactoryBot.create :user
       scenario 'they see all Schedules on the page' do
         get schedules_path
         expect(response).to have_http_status(200)      

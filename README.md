@@ -8,7 +8,7 @@ Better scheduling for medium to large teams.
 [Maintaining Specs](#maintaining-specs)
 
 # Testing Philosophy
->Controller testing has been soft-deprecated in Rails, but you’re still likely to see controller specs in many Rails codebases. The basics covered in this post still apply. -*Everyday Rails*
+>Controller testing has been soft-deprecated in Rails, but you’re still likely to see controller specs in many Rails codebases. -*Everyday Rails*
 
 Testing in Rails has changed from 100% coverage in unit and controller testing to feature/integration testing.  Originally Rspec scaffolded controller tests and these were used by developers to prove the application state would hold up under use.  Unit tests and Controller tests were expected for each function or method to guarantee that the developer wasn't coding incorrectly.
 
@@ -52,12 +52,10 @@ You may see the differences, we're not passing arguements to methods and watchin
 [Hello Feature Specs](https://everydayrails.com/2016/09/05/replace-rspec-controller-tests.html)
 
 # Specs
-```
-Program testing can be used to show the presence of bugs, but never to show their absence! 
---Edsger Dijkstra
-```
+>Program testing can be used to show the presence of bugs, but never to show their absence! --Edsger Dijkstra
+
 #### Running Specs
-Run the `rspec` command in your terminal while in the project root.  Output should show Failed, pending, and succesfull tests. 
+Run the `rspec` command in your terminal while in the project root.  Output should show Failed, pending, and successful tests. 
 
 #### Dependencies
 [factory_bot](https://github.com/thoughtbot/factory_bot_rails) - Generates objects we'll use for testing.
