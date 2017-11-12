@@ -5,7 +5,7 @@ Better scheduling for medium to large teams.
 
 [Testing Philosophy](#testing-philosophy)
 
-[Maintaining Specs](#maintaining-specs)
+[Specs](#specs)
 
 ## Testing Philosophy
 >Controller testing has been soft-deprecated in Rails, but you’re still likely to see controller specs in many Rails codebases. -*Everyday Rails*
