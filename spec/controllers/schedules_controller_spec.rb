@@ -51,7 +51,7 @@ RSpec.describe SchedulesController, type: :controller do
     }
   }
 
-  describe "GET #index" do
+  describe "GET #index of schedules" do
     context "if a user is not signed in" do
       it "returns a redirect to sign_in" do
         schedule = Schedule.create! valid_attributes
@@ -61,9 +61,10 @@ RSpec.describe SchedulesController, type: :controller do
     end
     context "if user is signed in" do
       it "returns a success response" do
+        sign_in user                     
         schedule = Schedule.create! valid_attributes
         get :index, params: {}, session: valid_session
-        expect(response).to redirect_to(schedules_url)
+        expect(response).to be_success
       end
     end
   end
