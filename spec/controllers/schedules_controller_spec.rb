@@ -24,63 +24,95 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 RSpec.describe SchedulesController, type: :controller do
+  let(:schedule) { FactoryBot.create :schedule }
+  let(:user) { FactoryBot.create :user }
 
   # This should return the minimal set of attributes required to create a valid
   # Schedule. As you add validations to Schedule, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    #{ name: "Night Schedule" }
+    { name: schedule.name }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { name: "" }
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # SchedulesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { 
+    { 
+      first_name: user.first_name,
+      last_name: user.last_name,
+      email: user.email,
+      password: user.password
+    }
+  }
 
-  describe "GET #index" do
-    it "returns a success response" do
-      schedule = Schedule.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(response).to be_success
+  describe "GET #index of schedules" do
+    context "if a user is not signed in" do
+      it "returns a redirect to sign_in" do
+        schedule = Schedule.create! valid_attributes
+        get :index, params: {}, session: valid_session
+        expect(response).to redirect_to(new_user_session_url)
+      end
+    end
+    context "if user is signed in" do
+      it "returns a success response" do
+        sign_in user                     
+        schedule = Schedule.create! valid_attributes
+        get :index, params: {}, session: valid_session
+        expect(response).to be_success
+      end
     end
   end
 
   describe "GET #show" do
-    it "returns a success response" do
-      schedule = Schedule.create! valid_attributes
-      get :show, params: {id: schedule.to_param}, session: valid_session
-      expect(response).to be_success
+    context "if user is signed in" do
+      it "returns a success response" do
+        sign_in user
+        schedule = Schedule.create! valid_attributes
+        get :show, params: {id: schedule.to_param}, session: valid_session
+        expect(response).to be_success
+      end
     end
   end
 
   describe "GET #new" do
-    it "returns a success response" do
-      get :new, params: {}, session: valid_session
-      expect(response).to be_success
+    context "if user is signed in" do
+      it "returns a success response" do
+        sign_in user
+        get :new, params: {}, session: valid_session
+        expect(response).to be_success
+      end
     end
   end
 
   describe "GET #edit" do
-    it "returns a success response" do
-      schedule = Schedule.create! valid_attributes
-      get :edit, params: {id: schedule.to_param}, session: valid_session
-      expect(response).to be_success
+    context "if a user is signed in" do
+      it "returns a success response" do
+        sign_in user
+        schedule = Schedule.create! valid_attributes
+        get :edit, params: {id: schedule.to_param}, session: valid_session
+        expect(response).to be_success
+      end
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Schedule" do
+        sign_in user
+        #we expect two schedules because we're creating one w/ FactorBot
         expect {
           post :create, params: {schedule: valid_attributes}, session: valid_session
-        }.to change(Schedule, :count).by(1)
+        }.to change(Schedule, :count).by(2)
       end
 
       it "redirects to the created schedule" do
+        sign_in user
         post :create, params: {schedule: valid_attributes}, session: valid_session
         expect(response).to redirect_to(Schedule.last)
       end
@@ -88,6 +120,7 @@ RSpec.describe SchedulesController, type: :controller do
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
+        sign_in user
         post :create, params: {schedule: invalid_attributes}, session: valid_session
         expect(response).to be_success
       end
@@ -97,17 +130,19 @@ RSpec.describe SchedulesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: "Night Man Schedule" }
       }
 
       it "updates the requested schedule" do
+        sign_in user
         schedule = Schedule.create! valid_attributes
         put :update, params: {id: schedule.to_param, schedule: new_attributes}, session: valid_session
         schedule.reload
-        skip("Add assertions for updated state")
+        expect schedule.name == :new_attributes
       end
 
       it "redirects to the schedule" do
+        sign_in user
         schedule = Schedule.create! valid_attributes
         put :update, params: {id: schedule.to_param, schedule: valid_attributes}, session: valid_session
         expect(response).to redirect_to(schedule)
@@ -116,6 +151,7 @@ RSpec.describe SchedulesController, type: :controller do
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'edit' template)" do
+        sign_in user        
         schedule = Schedule.create! valid_attributes
         put :update, params: {id: schedule.to_param, schedule: invalid_attributes}, session: valid_session
         expect(response).to be_success
@@ -125,6 +161,7 @@ RSpec.describe SchedulesController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested schedule" do
+      sign_in user      
       schedule = Schedule.create! valid_attributes
       expect {
         delete :destroy, params: {id: schedule.to_param}, session: valid_session
@@ -132,6 +169,7 @@ RSpec.describe SchedulesController, type: :controller do
     end
 
     it "redirects to the schedules list" do
+      sign_in user      
       schedule = Schedule.create! valid_attributes
       delete :destroy, params: {id: schedule.to_param}, session: valid_session
       expect(response).to redirect_to(schedules_url)
