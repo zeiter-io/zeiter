@@ -35,7 +35,7 @@
           <%= link_to "Users", users_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Pricing", '#', class: 'nav-link' %>
+          <%= link_to "Shifts", shifts_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
           <%= link_to "Contact Us", '#', class: 'nav-link' %>
@@ -43,28 +43,37 @@
       </ul>
 
       <!-- User Search -->
-      <form class="form-inline my-2 my-lg-0">
+      <% if user_signed_in? %>
+        <div>
+          <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+              <span class="navbar-text">Hello, <strong><%= current_user.email.split('@').first %></strong>!</span>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Profile', edit_user_registration_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item pad-right-20">
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Global Search -->
         <% if user_signed_in? %>
-
-            <span class="navbar-text">Logged in as <strong><%= current_user.email %></strong>.</span>
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <%= link_to 'Profile', edit_user_registration_path, class: 'nav-link' %>
-              </li>
-              <li class="nav-item pad-right-20">
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
-              </li>
-            </ul>
-
-            <!-- User Search -->
-            <% if user_signed_in? %>
-                <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="text" placeholder="Search User" aria-label="Search User">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+            <%= form_tag(all_search_index_path, method: 'get', class: 'form-inline') do %>
+                <%= text_field_tag(:query,
+                                   params[:query],
+                                   placeholder:    'Search User or Shift',
+                                   class:          'form-control form-control-sm',
+                                   id:             'searchTypeahead',
+                                   autocomplete:   :off,
+                                   autocorrect:    :off,
+                                   autocapitalize: :off) %>
+                <%= submit_tag('', name: nil, class: 'hidden', id: 'searchBtn') %>
             <% end %>
+        <% end %>
 
-        <% else %>
+      <% else %>
 
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
@@ -76,7 +85,6 @@
             </ul>
 
         <% end %>
-      </form>
     </div>
   </nav>
 

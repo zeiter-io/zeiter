@@ -1,0 +1,50 @@
+<div class="container-fluid search-results">
+  <p class="page-title pad-top-10 pad-bottom-10">Matching Results</p>
+  <!-- List Users -->
+  <% if @users.count > 0 %>
+      <!-- Display users table if any results exist -->
+      <table class="table table-hover">
+        <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Options</th>
+        </thead>
+        <tbody>
+        <% @users.each do |user| %>
+            <tr>
+              <td><%= user.first_name %></td>
+              <td><%= user.last_name %></td>
+              <td><%= user.email %></td>
+              <td>
+                <%= link_to 'Details', user, class: 'btn btn-outline-primary' %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% end %>
+
+  <% if @shifts.count > 0 %>
+      <table class="table table-hover">
+        <thead>
+        <th>Name</th>
+        <th>Schedule</th>
+        <th>Assigned To</th>
+        <th>Options</th>
+        </thead>
+        <tbody>
+        <% @shifts.each do |shift| %>
+            <tr>
+              <td><%= shift.name %></td>
+              <td><%= shift.schedule.name %></td>
+              <td><%= shift.user.full_name %></td>
+              <td>
+                <%= link_to 'Details', shift, class: 'btn btn-outline-primary' %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% end %>
+</div>
